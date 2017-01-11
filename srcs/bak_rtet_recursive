@@ -1,0 +1,56 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rtet.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ssalaues <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/14 13:16:58 by ssalaues          #+#    #+#             */
+/*   Updated: 2016/12/18 21:06:27 by ssalaues         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "fillit.h"
+#include "../libft/libft.h"
+
+t_piece	*createlst(char **data)
+{
+	t_piece *new;
+	
+	new = (t_piece *)malloc(sizeof(t_piece));
+	new->data = data;
+	new->next = 0;
+	return (new);
+}
+
+void	lstadd(t_piece **lst, t_piece *new)
+{
+	new->next = *lst;
+	*lst = new;
+}
+
+t_piece	*rtet(t_piece **blst, t_piece *piece, int fd)
+{
+	char	tmp[21];
+
+	read(fd, tmp, 20);
+	tmp[20] = 0;
+	if (!blst)
+	{
+		piece = createlst(ft_strsplit(tmp, '\n'));
+	}	
+	else
+	{
+		*blst = piece;
+		piece = createlst(ft_strsplit(tmp, '\n'));
+		lstadd(blst, piece);
+		piece = piece->next;
+	}
+	read(fd, tmp, 1);
+	tmp[1] = 0;
+	if (*tmp == '\n')
+		rtet(blst, piece, fd);
+	close(fd);
+	return (piece);
+}
+

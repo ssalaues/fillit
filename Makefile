@@ -6,7 +6,7 @@
 #    By: mkok <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/12 19:16:20 by mkok              #+#    #+#              #
-#    Updated: 2017/01/01 16:39:53 by mkok             ###   ########.fr        #
+#    Updated: 2017/01/11 13:57:10 by ssalaues         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ SRCS = \
 		./srcs/filledarea.c			\
 		./srcs/tetrotoalpha.c		\
 		./srcs/addallpieces.c		\
+		./srcs/allpiecesused.c		\
+		./srcs/piececount.c			\
 		./srcs/findheight.c			\
 		./srcs/findwidth.c			\
 		./srcs/doesitfit.c	

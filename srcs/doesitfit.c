@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-int		doesitfit(char **map, char **tetro)
+int		doesitfit(char **map, char **tetro, char c)
 {
 	char	*mapchar;
 	char	**maphead;
@@ -27,7 +27,9 @@ int		doesitfit(char **map, char **tetro)
 		mapchar = *map;
 		while (**map && **tetro)
 		{
-			if (**map == '#' && **tetro == '#')
+            if (**tetro == '#')
+                **tetro = c;
+			if (**map == c && **tetro == c)
 				return (0);
 			(*map)++;
 			(*tetro)++;

@@ -6,7 +6,7 @@
 #    By: mkok <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/12 19:16:20 by mkok              #+#    #+#              #
-#    Updated: 2017/01/11 13:57:10 by ssalaues         ###   ########.fr        #
+#    Updated: 2017/01/12 23:35:21 by ssalaues         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = fillit
 SRCS = \
 	    ./srcs/fillit.h				\
 		./srcs/trimtetro.c			\
-		./srcs/driver_rtet.c		\
+		./srcs/main.c				\
 		./srcs/rtet.c				\
 		./srcs/validatechars.c		\
 		./srcs/validateshape.c		\
@@ -28,12 +28,13 @@ SRCS = \
 		./srcs/piececount.c			\
 		./srcs/findheight.c			\
 		./srcs/findwidth.c			\
+		./srcs/put_alpha.c			\
 		./srcs/doesitfit.c	
 
 all: $(NAME)
 
 $(NAME): lib
-	@gcc -Wall -Wextra -Werror $(SRCS) -Llibft -lft
+	@gcc -Wall -Wextra -Werror $(SRCS) -Llibft -lft -g
 
 lib:
 	@cd libft && make

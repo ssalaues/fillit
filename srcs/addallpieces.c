@@ -6,33 +6,40 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/28 13:51:03 by mkok              #+#    #+#             */
-/*   Updated: 2017/01/11 16:50:28 by ssalaues         ###   ########.fr       */
+/*   Updated: 2017/01/12 18:34:47 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		addallpieces(t_piece *pieces, t_piece *pieceshead, char **map, char **mapori)
+int		addallpieces(t_piece *pieces, t_piece *pieceshead, char **map, int mapsize, char **mapori)
 {
-	int			count;
-	int			size;
+	int			tx;
+	int			ty;
 
-	count = 0;
-	if (!allpiecesused(pieceshead))
+
+	ty = 0;
+	tx = 0;
+	while (!allpiecesused(pieceshead))
 	{
 		printf("Checking tetromino %c\n", pieces->abc);
-		printf("Does it fit: %i\n", doesitfit(map, (*pieces).data));
+		printf("Does it fit: %i\n", doesitfit(map, (*pieces).data, pieces->abc));
 		printf("Has the tetromino been used: %i\n\n", pieces->used);
-		if (doesitfit(map, (*pieces).data) && !pieces->used)
+		while (doesitfit(map, (*pieces).data, pieces->abc) && !pieces->used)
 		{
 			pieces->loc = map;
-			map = addtomap(map, (*pieces).data);
+			map = addtomap(map, (*pieces).data, pieces->abc);
 			pieces->used = 1;
 			printf("%c\n", pieces->abc);
-			return (addallpieces(pieces->next, pieceshead, map, mapori));
+            printf("Piece:\n%s\n", *(pieces->data));
+			return (addallpieces(pieces->next, pieceshead, map, mapsize, mapori));
 		}
-		if (!doesitfit(map, (*pieces).data) || pieces->used)
-			return (addallpieces(pieces, pieceshead, map + 1, mapori));
+		tx++;
+		if (!doesitfit(map, pieces->data, pieces->abc))
+			return (addallpieces(pieces, pieceshead, map + 1, mapsize, mapori));
+	ty++;
 	}
 	return (0);
 }
+
+

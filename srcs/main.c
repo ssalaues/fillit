@@ -35,11 +35,11 @@ int    main(int ac, char **av)
 	if (!pieces) //Handles if validatechars or validateshape is invalid
 		return (0);
 	pieceshead = pieces;
-	while (pieces->next)
-	{
-		pieces->data = trimtetro(pieces->data);
-		pieces = pieces->next;
-	}
+//	while (pieces->next)
+//	{
+//		pieces->data = trimtetro(pieces->data);
+//		pieces = pieces->next;
+//	}
 	pieces = pieceshead;
 	printf("The piece count is : %i\n", piececount(pieces));
 	//	while (!allcombosexplored) // did not make yet

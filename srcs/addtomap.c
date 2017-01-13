@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-char	**addtomap(char **map, char **tetro)
+char	**addtomap(char **map, char **tetro, char c)
 {
 	char	**maphead;
 	char	**tetrohead;
@@ -20,15 +20,16 @@ char	**addtomap(char **map, char **tetro)
 	char	*mapchar;
 
 	maphead = map;
-	tetrohead = tetro;
+//    tetro = put_alpha(tetro, c);
+    tetrohead = tetro;
 	while (*tetro && *map)
 	{
 		tetrochar = *tetro;
 		mapchar = *map;
 		while (**tetro && **map)
 		{
-			if (**tetro == '#' && **map == '.')
-				**map = **tetro;
+			if (**tetro == c && **map == '.')
+                **map = **tetro;
 			(*tetro)++;
 			(*map)++;
 		}

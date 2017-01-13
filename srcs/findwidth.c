@@ -6,11 +6,11 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/28 14:46:56 by mkok              #+#    #+#             */
-/*   Updated: 2017/01/01 16:17:34 by mkok             ###   ########.fr       */
+/*   Updated: 2017/01/13 11:17:22 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		findwidth(char **tetro)
+int		findwidth(char **tetro, char c)
 {
 	char	*xhead;
 	char	*xperm;
@@ -25,7 +25,7 @@ int		findwidth(char **tetro)
 		xpos = xhead;
 		while (**tetro)
 		{
-			if (**tetro == '#' && (((xpos - xhead) + 1) > x))
+			if (**tetro == c && (((xpos - xhead) + 1) > x))
 				x = ((xpos - xhead) + 1);
 			(*tetro)++;
 			xpos++;

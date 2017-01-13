@@ -6,7 +6,7 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/18 19:08:27 by mkok              #+#    #+#             */
-/*   Updated: 2017/01/06 16:21:59 by mkok             ###   ########.fr       */
+/*   Updated: 2017/01/13 10:39:31 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**addtomap(char **map, char **tetro, char c)
 	char	*mapchar;
 
 	maphead = map;
-//    tetro = put_alpha(tetro, c);
+//  tetro = put_alpha(tetro, c);
     tetrohead = tetro;
 	while (*tetro && *map)
 	{
@@ -29,9 +29,13 @@ char	**addtomap(char **map, char **tetro, char c)
 		while (**tetro && **map)
 		{
 			if (**tetro == c && **map == '.')
+           	{
                 **map = **tetro;
-			(*tetro)++;
-			(*map)++;
+				(*tetro)++;
+			}
+            if (**tetro == '.' && **map == '.')
+                (*tetro)++;
+            (*map)++;
 		}
 		*tetro = tetrochar;
 		*map = mapchar;

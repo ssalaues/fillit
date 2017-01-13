@@ -40,7 +40,7 @@ int    main(int ac, char **av)
 //		pieces->data = trimtetro(pieces->data);
 //		pieces = pieces->next;
 //	}
-	pieces = pieceshead;
+//	pieces = pieceshead;
 	printf("The piece count is : %i\n", piececount(pieces));
 	//	while (!allcombosexplored) // did not make yet
 //	{

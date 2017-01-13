@@ -6,13 +6,13 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/28 14:41:09 by mkok              #+#    #+#             */
-/*   Updated: 2017/01/06 15:45:54 by mkok             ###   ########.fr       */
+/*   Updated: 2017/01/13 11:17:12 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		findheight(char **tetro) //must start at tetromino origin
+int		findheight(char **tetro, char c) //must start at tetromino origin
 {
 	char	**yhead;
 	char	**yperm;
@@ -29,7 +29,7 @@ int		findheight(char **tetro) //must start at tetromino origin
 		ypos = yhead;
 		while (*tetro)
 		{
-			if (**tetro == '#' && (((ypos - yhead) + 1) > y))
+			if (**tetro == c && (((ypos - yhead) + 1) > y))
 				y = ((ypos - yhead) + 1);
 			tetro++;
 			ypos++;

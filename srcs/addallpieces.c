@@ -29,7 +29,9 @@ int		addallpieces(t_piece *pieces, t_piece *pieceshead, char **map, int mapsize,
 		{
 			pieces->loc = map;
 			map = addtomap(map, (*pieces).data, pieces->abc);
-			pieces->used = 1;
+			pieces->used = 1;// Place temporarily == 1
+                if (pieces->used == 2)//Optimal Placement == 2
+                    return (addallpieces(pieces->next, pieceshead, map, mapsize, mapori));
 			printf("%c\n", pieces->abc);
             printf("Piece:\n%s\n", *(pieces->data));
 			return (addallpieces(pieces->next, pieceshead, map, mapsize, mapori));

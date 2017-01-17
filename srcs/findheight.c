@@ -6,7 +6,7 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/28 14:41:09 by mkok              #+#    #+#             */
-/*   Updated: 2017/01/13 11:17:12 by ssalaues         ###   ########.fr       */
+/*   Updated: 2017/01/17 11:08:50 by mkok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,9 @@ int		findheight(char **tetro, char c) //must start at tetromino origin
 		count++;
 		tetro = yhead;
 	}
-	printf("Count: %i\n", count);
 	while (count)
 	{
-		tetro = yhead;
+		tetro = yperm;
 		while(*tetro)
 		{
 			(*tetro)--;

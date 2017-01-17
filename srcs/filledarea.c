@@ -6,7 +6,7 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/20 15:33:58 by mkok              #+#    #+#             */
-/*   Updated: 2017/01/06 16:40:16 by mkok             ###   ########.fr       */
+/*   Updated: 2017/01/06 19:06:42 by mkok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ int		filledarea(char **map) //must start at map origin
 		count++;
 		map = yhead;
 	}
-	*map = xperm;
 	while (count)
 	{
 		map = yperm;

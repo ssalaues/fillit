@@ -6,7 +6,7 @@
 /*   By: ssalaues <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/18 19:07:49 by ssalaues          #+#    #+#             */
-/*   Updated: 2017/01/12 12:52:51 by ssalaues         ###   ########.fr       */
+/*   Updated: 2017/01/19 14:18:47 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,14 @@ int    main(int ac, char **av)
 	if (!pieces) //Handles if validatechars or validateshape is invalid
 		return (0);
 	pieceshead = pieces;
-//	while (pieces->next)
-//	{
-//		pieces->data = trimtetro(pieces->data);
-//		pieces = pieces->next;
-//	}
-//	pieces = pieceshead;
+	if (pieces->next == 0)
+		pieces->data = trimtetro(pieces->data);
+	while (pieces->next)
+	{
+		pieces->data = trimtetro(pieces->data);
+		pieces = pieces->next;
+	}
+	pieces = pieceshead;
 	printf("The piece count is : %i\n", piececount(pieces));
 	//	while (!allcombosexplored) // did not make yet
 //	{

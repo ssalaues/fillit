@@ -6,7 +6,7 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/18 19:08:27 by mkok              #+#    #+#             */
-/*   Updated: 2017/01/17 11:34:56 by mkok             ###   ########.fr       */
+/*   Updated: 2017/01/18 11:14:18 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ char	**addtomap(char **map, char **tetro, char c)
 	char	**tetrohead;
 	char	*tetrochar;
 	char	*mapchar;
-
+	
+	
 	maphead = map;
 	tetrohead = tetro;
 	while (*tetro && *map)

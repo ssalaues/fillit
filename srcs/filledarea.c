@@ -6,7 +6,7 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/20 15:33:58 by mkok              #+#    #+#             */
-/*   Updated: 2017/01/06 19:06:42 by mkok             ###   ########.fr       */
+/*   Updated: 2017/01/18 11:18:46 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		filledarea(char **map) //must start at map origin
 		ypos = yhead;
 		while (*map)
 		{
-			if (**map == '#' && (((ypos - yhead) + 1) > y))
+			if (ft_isalpha(**map) && (((ypos - yhead) + 1) > y))
 				y = ((ypos - yhead) + 1);
 			map++;
 			ypos++;

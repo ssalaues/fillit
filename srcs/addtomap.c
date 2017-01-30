@@ -28,14 +28,9 @@ char	**addtomap(char **map, char **tetro, char c)
 		mapchar = *map;
 		while (**tetro && **map)
 		{
-		//	if (**tetro == c && **map == '.')
 			if (**map == '.')
-		//	{
 				**map = **tetro;
 			(*tetro)++;
-		//	}
-		//	if (**tetro == '.' && **map == '.')
-		//		(*tetro)++;
 			(*map)++;
 		}
 		*tetro = tetrochar;

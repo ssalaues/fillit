@@ -6,7 +6,7 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/01 16:25:19 by mkok              #+#    #+#             */
-/*   Updated: 2017/01/19 14:33:02 by mkok             ###   ########.fr       */
+/*   Updated: 2017/01/30 10:19:32 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		doesitfit(char **map, char **mapori, int mapsize, char **tetro, char c)
 	maphead = map;
 	tetrohead = tetro;
 	if (map - mapori + findheight(tetro, '#') > mapsize)
-		return (0);
+//		return (0);
 	while (*map && *tetro)
 	{
 		tetrochar = *tetro;

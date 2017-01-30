@@ -6,11 +6,12 @@
 /*   By: ssalaues <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/18 19:07:49 by ssalaues          #+#    #+#             */
-/*   Updated: 2017/01/19 14:18:47 by ssalaues         ###   ########.fr       */
+/*   Updated: 2017/01/27 12:24:49 by mkok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <math.h>
 
 int    main(int ac, char **av)
 {
@@ -23,11 +24,11 @@ int    main(int ac, char **av)
 	t_piece		*phead;
 //	char		**bestmap;
 	int			mapsize;
-	
-	mapsize = 25;
+	int			amthori;
+	char		**temp;
+
+	amthori = 0;	
 //	bestmap = 0;
-	map = mapmaker(mapsize);
-	maphead = map;
 	if (ac != 2)
 		return (0);
 	pieces = rtet(open(av[1], O_RDONLY));
@@ -43,13 +44,39 @@ int    main(int ac, char **av)
 		pieces = pieces->next;
 	}
 	pieces = pieceshead;
-	printf("The piece count is : %i\n", piececount(pieces));
 	//	while (!allcombosexplored) // did not make yet
 //	{
-		addallpieces(pieces, pieceshead, map, mapsize, maphead);
-		printf("Map size: %i\n", filledarea(map));
-
-//		sol1 = map;
+		mapsize = ft_sqrt_ceil(piececount(pieces));
+		map = mapmaker(mapsize);
+		maphead = map;
+		temp = map;
+		addallpieces(pieces, pieceshead, map, mapsize, maphead, amthori);
+	//	while (amthori)
+	//	{
+	//		temp = 0;
+	//		while (*map)
+	//		{
+	//			(*map)--;
+	//			map++;
+	//			temp++;
+	//		}
+	//		map = map - temp;
+	//		amthori--;
+	//	}
+//		pieces = pieceshead;
+//		map = maphead;
+//		if (!allpiecesused(pieces))
+//		{
+//			mapsize = mapsize + 1;
+//			free (map);
+//			map = mapmaker(mapsize);
+//			maphead = map;
+//			pieces = pieceshead;
+//		}
+//		if (allpiecesused(pieces))
+//		{
+//			sol1 = pieces;
+//		}
 //		rotatepieces(); // did not make yet
 //		a
 //	}
@@ -57,10 +84,11 @@ int    main(int ac, char **av)
 	map = maphead;
 //	if ((filledarea(map) <  filledarea(bestmap)) || bestmap == 0)
 //		bestmap = map;
-	while (*maphead)
+	
+	while (*temp)
 	{
-		printf("%s\n", *maphead);
-		maphead++;
+		printf("%s\n", *temp);
+		temp++;
 	}
 	return (0);
 }

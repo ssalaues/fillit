@@ -1,0 +1,10 @@
+libft
+libft/libft.a
+a.out
+a.out.dSYM
+srcs/fillit.h.gch
+srcs/._*
+._.DS_Store
+.DS_Store
+srcs/._fillit.h
+srcs/._main.c

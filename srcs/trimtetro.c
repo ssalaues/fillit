@@ -6,7 +6,7 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/19 14:51:12 by mkok              #+#    #+#             */
-/*   Updated: 2016/12/22 11:02:37 by mkok             ###   ########.fr       */
+/*   Updated: 2017/02/01 09:31:12 by mkok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	**trimtetro(char **tetro)
 			tetrochar = *tetro;
 			while (**tetro)
 			{
-				if (**tetro == '#')
+				if (ft_isalpha(**tetro))
 					x = 1;
 				(*tetro)++;
 			}
@@ -39,7 +39,7 @@ char	**trimtetro(char **tetro)
 			tetrohead = tetro;
 			while (*tetro)
 			{
-				if (**tetro == '#')
+				if (ft_isalpha(**tetro))
 					y = 1;
 				tetro++;
 			}
@@ -64,6 +64,5 @@ char	**trimtetro(char **tetro)
 		}
 		tetro = tetropoop;
 	}
-	ft_putstr("No line & column pair has 2 #'s");
 	return (0);
 }

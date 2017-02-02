@@ -6,7 +6,7 @@
 /*   By: ssalaues <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 18:06:16 by ssalaues          #+#    #+#             */
-/*   Updated: 2017/01/12 18:24:31 by ssalaues         ###   ########.fr       */
+/*   Updated: 2017/02/01 11:51:22 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 char    **put_alpha(char **piece, char c)
 {
     char **phead;
+	char *str;
     
     phead = piece;
 	while (*phead)
 	{
-		while (**phead != 0)
+		str = *phead;
+		while (*str != 0)
 		{
-			if (**phead == '#')
-				**phead = c;
-            (*phead)++;
+			if (*str == '#')
+				*str = c;
+            str++;
 		}
 		phead++;
 	}

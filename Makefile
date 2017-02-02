@@ -6,33 +6,34 @@
 #    By: mkok <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/12 19:16:20 by mkok              #+#    #+#              #
-#    Updated: 2017/01/29 15:21:45 by ssalaues         ###   ########.fr        #
+#    Updated: 2017/02/02 10:38:33 by ssalaues         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
 SRCS = \
-	    ./srcs/fillit.h				\
-		./srcs/trimtetro.c			\
-		./srcs/main.c				\
 		./srcs/rtet.c				\
 		./srcs/validatechars.c		\
 		./srcs/validateshape.c		\
 		./srcs/addtomap.c			\
 		./srcs/mapmaker.c			\
-		./srcs/filledarea.c			\
-		./srcs/tetrotoalpha.c		\
-		./srcs/addallpieces.c		\
-		./srcs/addallpieceshori.c	\
-		./srcs/findheight.c			\
-		./srcs/findwidth.c			\
-		./srcs/doesitfit.c			\
-		./srcs/allpiecesused.c		\
+		./srcs/fheight.c			\
+		./srcs/fwidth.c				\
+		./srcs/resetused.c			\
+		./srcs/freemap.c			\
+		./srcs/trimtetro.c			\
+		./srcs/trimall.c			\
+		./srcs/printtetros.c		\
+		./srcs/main.c				\
+		./srcs/put_alpha.c			\
 		./srcs/piececount.c			\
-		./srcs/allpiecesfit.c		\
-		./srcs/ft_sqrt_ceil.c		\
-		./srcs/move.c
+		./srcs/printmap.c			\
+		./srcs/solver.c				\
+		./srcs/addallpieces.c		\
+		./srcs/allpiecesused.c		\
+		./srcs/doesitfit.c			\
+		./srcs/ft_sqrt_ceil.c
 
 all: $(NAME)
 

@@ -5,43 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/18 19:08:27 by mkok              #+#    #+#             */
-/*   Updated: 2017/01/19 14:24:05 by mkok             ###   ########.fr       */
+/*   Created: 2017/02/01 08:25:18 by mkok              #+#    #+#             */
+/*   Updated: 2017/02/02 10:15:01 by mkok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	**addtomap(char **map, char **tetro, char c)
+void	addtomap(char **map, char **tetro)
 {
 	char	**maphead;
 	char	**tetrohead;
-	char	*tetrochar;
 	char	*mapchar;
+	char	*tetrochar;
 
-	c++;
 	maphead = map;
 	tetrohead = tetro;
-	while (*tetro && *map)
+	while (*maphead && *tetrohead)
 	{
-		tetrochar = *tetro;
-		mapchar = *map;
-		while (**tetro && **map)
+		mapchar = *maphead;
+		tetrochar = *tetrohead;
+		while(*mapchar && *tetrochar)
 		{
-			if (**map == '.')
-				**map = **tetro;
-			(*tetro)++;
-			(*map)++;
+			if (*mapchar == '.')
+				*mapchar = *tetrochar;
+			mapchar++;
+			tetrochar++;
 		}
-		*tetro = tetrochar;
-		*map = mapchar;
-		ft_putstr(*map);
-		ft_putchar('\n');
-		tetro++;
-		map++;
+		tetrochar = *tetrohead;
+		mapchar = *maphead;
+	//	printf("%s\n", *maphead);
+		maphead++;
+		tetrohead++;
 	}
-	tetro = tetrohead;
-	map = maphead;
-//	printf("\n%s\n", *map);
-	return (map);
 }

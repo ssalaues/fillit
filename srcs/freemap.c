@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_test.c                                          :+:      :+:    :+:   */
+/*   clearmap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ssalaues <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/19 13:21:40 by ssalaues          #+#    #+#             */
-/*   Updated: 2016/12/19 16:46:22 by ssalaues         ###   ########.fr       */
+/*   Created: 2017/01/30 14:53:39 by mkok              #+#    #+#             */
+/*   Updated: 2017/01/30 15:29:42 by mkok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	main(int ac, char **av)
-{
-	if (ac != 2)
-		return (0);
+#include "fillit.h"
 
+void	freemap(char **map)
+{
+	char	**maphead;
+	maphead = map;
+	while (*map)
+	{
+		free(*map);
+		map++;
+	}
+	map = maphead;
 }

@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   findwidth.c                                        :+:      :+:    :+:   */
+/*   printtetros.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/28 14:46:56 by mkok              #+#    #+#             */
-/*   Updated: 2017/01/17 11:08:13 by mkok             ###   ########.fr       */
+/*   Created: 2017/02/01 10:46:40 by mkok              #+#    #+#             */
+/*   Updated: 2017/02/01 12:02:31 by mkok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		findwidth(char **tetro, char c)
+#include "fillit.h"
+
+void	printtetros(t_piece *pieces)
 {
-	char	*xhead;
-	char	*xperm;
-	char	*xpos;
-	int		x;
-	
-	x = 0;
-	xperm = *tetro;
-	while (*tetro)
+	t_piece		*phead;
+	char		**thead;
+
+	phead = pieces;
+	while (phead)
 	{
-		xhead = *tetro;
-		xpos = xhead;
-		while (**tetro)
+		thead = phead->data;
+		while (*thead)
 		{
-			if (**tetro == c && (((xpos - xhead) + 1) > x))
-				x = ((xpos - xhead) + 1);
-			(*tetro)++;
-			xpos++;
+			ft_putstr(*thead);
+			ft_putchar('\n');
+			thead++;
 		}
-		*tetro = xhead;
-		xpos = xhead;
-		tetro++;
+		if (phead->next != 0)
+			ft_putchar('\n');
+		phead = phead->next;
 	}
-	return (x);
 }

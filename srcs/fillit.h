@@ -6,7 +6,7 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 12:30:14 by mkok              #+#    #+#             */
-/*   Updated: 2017/01/27 14:40:45 by ssalaues         ###   ########.fr       */
+/*   Updated: 2017/02/02 10:27:45 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,31 @@ typedef struct				s_piece
 	struct s_piece			*next;
 	char					**data;
 	char					abc;
-	char					**loc;
 	int						used;
 }							t_piece;
 
+int							filledarea(char **map);
+
+
 t_piece						*rtet(int fd);
+char						**put_alpha(char **piece, char c);
 int							validatechars(char *tetro);
 int							validateshape(char *tetro);
-char						**trimtetro(char **tetro);
-char						**addtomap(char **map, char **tetro, char c);
-char						**makepieces(char *str);
+void						freemap(char **map);
+void						resetused(t_piece *pieces);
+void						printtetros(t_piece *pieces);
+int							fwidth(char **tetro, char c);
+int							fheight(char **tetro, char c);
 char						**mapmaker(int dimension);
-int							filledarea(char **map);
-char						**tetrotoalpha(char **map, char **tetro, char c);
-int							addallpieces(t_piece *pieces, t_piece *pieceshead, char **map, int mapsize, char **mapori, int amthori);
-int							addallpieceshori(t_piece *pieces, t_piece *pieceshead, char **map, int mapsize, char **mapori, int amthori);
-int							findheight(char **tetro, char c);
-int							findwidth(char **tetro, char c);
-int							doesitfit(char **map, char **mapori, int mapsize, char **tetro, char c);
+void						addtomap(char **map, char **tetro);
+char						**trimtetro(char **tetro);
+void						trimall(t_piece *pieces);
+int							piececount(t_piece *pieces);
+void						printmap(char **map);
+char						**solver(t_piece *pieces);
 int							allpiecesused(t_piece *pieces);
-int							piececount(t_piece *pieceshead);
-int							allpiecesfit(char **map, int mapsize, char c);
-char						**pmove(char **map, char abc);
-int                         ft_sqrt_ceil(unsigned int nb);
+int							addallpieces(t_piece *pieces, char **map);
+int							doesitfit(t_piece *piece, char **map);
+int							ft_sqrt_ceil(unsigned int nb);
 
 #endif

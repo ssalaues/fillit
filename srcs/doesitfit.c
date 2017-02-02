@@ -5,51 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/01 16:25:19 by mkok              #+#    #+#             */
-/*   Updated: 2017/01/30 10:19:32 by ssalaues         ###   ########.fr       */
+/*   Created: 2017/02/01 10:22:58 by mkok              #+#    #+#             */
+/*   Updated: 2017/02/01 14:26:23 by mkok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		doesitfit(char **map, char **mapori, int mapsize, char **tetro, char c)
+int		doesitfit(t_piece *piece, char **map)
 {
-	char	*mapchar;
 	char	**maphead;
-	char	*tetrochar;
-	char	**tetrohead;
+	char	*mapstr;
+	char	**thead;
+	char	*tstr;
+	int		count;
 
+	count = 0;
 	maphead = map;
-	tetrohead = tetro;
-	if (map - mapori + findheight(tetro, '#') > mapsize)
-//		return (0);
-	while (*map && *tetro)
+	thead = piece->data;
+	while (*maphead && *thead)
 	{
-		tetrochar = *tetro;
-		mapchar = *map;
-		if (*map - mapchar + findwidth(tetro, '#') > mapsize)
-			return (0);
-		while (**map && **tetro)
+		mapstr = *maphead;
+		tstr = *thead;
+		while (*mapstr && *tstr)
 		{
-			if (**tetro == '#')
-				**tetro = c;
-			if (ft_isalpha(**map) && **tetro == c)
-			{
-				*map = mapchar;
-				*tetro = tetrochar;
-				map = maphead;
-				tetro = tetrohead;
-				return (0);
-			}
-			(*map)++;
-			(*tetro)++;
+			if (*mapstr == '.' && ft_isalpha(*tstr))
+				count++;
+			if (count == 4)
+				return (1);
+			tstr++;
+			mapstr++;
 		}
-		*tetro = tetrochar;
-		*map = mapchar;
-		map++;
-		tetro++;
+		thead++;
+		maphead++;
 	}
-	tetro = tetrohead;
-	map = maphead;
-	return (1);
+	return (0);
 }

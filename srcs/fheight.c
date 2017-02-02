@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_remove_if.c                                :+:      :+:    :+:   */
+/*   fheight.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ssalaues <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/22 11:49:14 by ssalaues          #+#    #+#             */
-/*   Updated: 2016/12/22 11:54:45 by ssalaues         ###   ########.fr       */
+/*   Created: 2017/01/31 19:13:28 by mkok              #+#    #+#             */
+/*   Updated: 2017/02/01 08:05:55 by mkok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fillit.h"
 
-void	ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
+int		fheight(char **tetro, char c)
 {
-	t_list *b;
+	int		count;
+	char	**head;
 
-	b = *begin_list;
-	while(b->next != 0)
+	count = 0;
+	head = tetro;
+	while (*head)
 	{
-		if (!cmp(data_ref, b->data))
-			free(b->data);
-		b = b->next;
+		if (!ft_strchr(*head, c))
+			return (count);
+		head++;
+		count++;
 	}
-	if (!cmp(data_ref, b->data))
-		free(b->data);
+	return (count);
 }
+

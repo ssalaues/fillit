@@ -1,15 +1,17 @@
 
 #include "fillit.h"
 
-int		piececount(t_piece *pieceshead)
+int		piececount(t_piece *pieces)
 {
-	int		count;
+	int			count;
+	t_piece		*phead;
 
+	phead = pieces;
 	count = 0;
-	while (pieceshead->next)
+	while (phead)
 	{
 		count++;
-		pieceshead = pieceshead->next;
+		phead = phead->next;
 	}
-	return (count + 1);
+	return (count);
 }

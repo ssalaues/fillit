@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   allpiecesfit.c                                     :+:      :+:    :+:   */
+/*   fwidth.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/06 12:18:41 by mkok              #+#    #+#             */
-/*   Updated: 2017/01/17 11:31:02 by mkok             ###   ########.fr       */
+/*   Created: 2017/01/31 20:57:50 by mkok              #+#    #+#             */
+/*   Updated: 2017/02/01 08:16:05 by mkok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		allpiecesfit(char **map, int mapsize, char c)
+int		fwidth(char **tetro, char c)
 {
-	int		height;
-	int		width;
+	char	**thead;
+	char	*tstr;
+	char	*tpos;
+	int		x;
 
-	height = findheight(map, c);
-	width = findwidth(map, c);
-//	printf("ALLPIECESFIT: height is %i\n", height);
-//	printf("ALLPIECESFIT: width is %i\n", width);
-	if (width <= mapsize && height <= mapsize)
-		return (1);
-	else
-		return (0);
+
+	x = 0;
+	thead = tetro;
+	while (*thead)
+	{
+		tstr = *thead;
+		tpos = *thead;
+		while (*tstr)
+		{
+			if (*tpos == c && ((tpos - tstr) + 1) > x)
+				x = tpos - tstr + 1;
+			tpos++;
+		}
+		tpos = tstr;
+		thead++;
+	}
+	return (x);
 }

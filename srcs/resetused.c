@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tetrotoalpha.c                                     :+:      :+:    :+:   */
+/*   resetused.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/22 13:21:46 by mkok              #+#    #+#             */
-/*   Updated: 2016/12/28 12:16:20 by mkok             ###   ########.fr       */
+/*   Created: 2017/01/30 15:34:24 by mkok              #+#    #+#             */
+/*   Updated: 2017/01/30 15:49:20 by mkok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	**tetrotoalpha(char **map, char **tetro,  char c)
+void	resetused(t_piece *pieces)
 {
-	char	**maphead;
-	char	*mapchar;
-	char	**tetrohead;
-	char	*tetrochar;
-
-	tetrohead = tetro;
-	maphead = map;
-	while (*map)
+	t_piece	*phead;
+   	phead = pieces;
+	while (pieces->next)
 	{
-		mapchar = *map;
-		tetrochar = *tetro;
-		while (**map)
-		{
-			if (**map == '#' && **tetro == '#')
-				**map = c;
-			(*map)++;
-			(*tetro)++;
-		}
-		*map = mapchar;
-		*tetro = tetrochar;
-		map++;
-		tetro++;
+		pieces->used = 0;
+		pieces = pieces->next;
 	}
-	return (maphead);
+	pieces = phead;
 }
+

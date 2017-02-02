@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/05 11:20:11 by mkok              #+#    #+#             */
-/*   Updated: 2017/01/05 11:59:00 by mkok             ###   ########.fr       */
+/*   Created: 2017/02/01 12:50:41 by mkok              #+#    #+#             */
+/*   Updated: 2017/02/01 12:55:42 by mkok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,19 @@
 
 int		allpiecesused(t_piece *pieces)
 {
-	int		count;
-	int		pcount;
+	int			count;
+	int			pcount;
+	t_piece		*phead;
 
 	count = 0;
-	pcount = piececount(pieces);
-	if (!pieces)
-		return (0);
-	while (pieces->next)
+	phead = pieces;
+	pcount = piececount(phead);
+	while (phead)
 	{
-		if (pieces->used)
+		if (phead->used)
 			count++;
-		pieces = pieces->next;
+		phead = phead->next;
 	}
-	if (pieces->used)
-		count++;
 	if (count == pcount)
 		return (1);
 	return (0);

@@ -5,40 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/28 13:51:03 by mkok              #+#    #+#             */
-/*   Updated: 2017/01/27 14:55:45 by ssalaues         ###   ########.fr       */
+/*   Created: 2017/02/01 09:39:19 by mkok              #+#    #+#             */
+/*   Updated: 2017/02/02 10:19:44 by mkok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		addallpieces(t_piece *pieces, t_piece *pieceshead, char **map, int mapsize, char **mapori, int amthori)
+int		addallpieces(t_piece *pieces, char **map)
 {
-	int			count;
-	int			size;
+	char		**maphead;
+	char		*mapchar;
 
-	size = mapsize;
-	count = 0;
-	printf("have all tetrominos been used: %i\n", allpiecesused(pieceshead));
-	printf("Filled area: %d\n\n", filledarea(mapori));
-	if (!allpiecesused(pieceshead)/* && (filledarea(mapori) <= (mapsize * mapsize))*/)
+	maphead = map;
+	mapchar = *maphead;
+	if (!pieces)
+		return (1);
+	while (*maphead && *mapchar && !doesitfit(pieces, maphead))
+		maphead++;
+	if (*maphead && *mapchar && doesitfit(pieces, maphead))
 	{
-		printf("Checking tetromino %c\n", pieces->abc);
-		printf("Does it fit: %i\n", doesitfit(map, mapori, mapsize, (*pieces).data, pieces->abc));
-		printf("Has the tetromino been used: %i\n\n", pieces->used);
-		if (doesitfit(map, mapori, mapsize, (*pieces).data, pieces->abc) && !pieces->used)
-		{
-			pieces->loc = map;
-			map = addtomap(map, (*pieces).data, pieces->abc);
-			pieces->used = 1;
-			printf("%c\n", pieces->abc);
-			addallpieces(pieces->next, pieceshead, mapori, mapsize, mapori, amthori)/* ||addallpieceshori(pieces->next, pieceshead, mapori, mapsize, mapori, amthori)*/;
-		}
-		if (((!doesitfit(map, mapori, mapsize, (*pieces).data, pieces->abc)) || pieces->used) && *map && map)
-		{
-			printf("incrementing map...\n");
-			addallpieces(pieces, pieceshead, mapmaker(mapsize + 1), mapsize + 1, mapori, amthori)/* || addallpieceshori(pieces, pieceshead, map, mapsize, mapori, amthori)*/;
-		}
+		addtomap(maphead, pieces->data);
+	//	printf("\n\n\n");
+		pieces->used = 1;
+		addallpieces(pieces->next, maphead);
 	}
-	return (0);
+	return (1);
 }

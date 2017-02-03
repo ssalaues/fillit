@@ -6,7 +6,7 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 12:30:14 by mkok              #+#    #+#             */
-/*   Updated: 2017/02/02 10:27:45 by ssalaues         ###   ########.fr       */
+/*   Updated: 2017/02/02 11:35:28 by mkok             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,8 @@ int							allpiecesused(t_piece *pieces);
 int							addallpieces(t_piece *pieces, char **map);
 int							doesitfit(t_piece *piece, char **map);
 int							ft_sqrt_ceil(unsigned int nb);
+
+void						moveback(char **map, int amthori);
+void						moveforward(char **map);
 
 #endif

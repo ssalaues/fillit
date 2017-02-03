@@ -6,7 +6,7 @@
 #    By: mkok <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/12 19:16:20 by mkok              #+#    #+#              #
-#    Updated: 2017/02/02 10:38:33 by ssalaues         ###   ########.fr        #
+#    Updated: 2017/02/02 11:45:56 by mkok             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,9 @@ SRCS = \
 		./srcs/addallpieces.c		\
 		./srcs/allpiecesused.c		\
 		./srcs/doesitfit.c			\
-		./srcs/ft_sqrt_ceil.c
+		./srcs/ft_sqrt_ceil.c		\
+		./srcs/moveback.c			\
+		./srcs/moveforward.c
 
 all: $(NAME)
 

@@ -12,32 +12,31 @@
 
 #include "fillit.h"
 
-int		doesitfit(t_piece *piece, char **map)
+int		doesitfit(t_piece *piece, char **map, int mapsize)
 {
-	char	**maphead;
-	char	*mapstr;
-	char	**thead;
-	char	*tstr;
+    int     x;
+    int     y;
 	int		count;
+    char    **tet;
 
+    x = 0;
+    y = 0;
 	count = 0;
-	maphead = map;
-	thead = piece->data;
-	while (*maphead && *thead)
+    tet = piece->data;
+	while (mapsize > x)
 	{
-		mapstr = *maphead;
-		tstr = *thead;
-		while (*mapstr && *tstr)
+		while (map[x][y] != 0 && tet[x][y] != 0)
 		{
-			if (*mapstr == '.' && ft_isalpha(*tstr))
+			if (map[x][y] == '.' && ft_isalpha(tet[x][y]))
 				count++;
 			if (count == 4)
 				return (1);
-			tstr++;
-			mapstr++;
+            y++;
 		}
-		thead++;
-		maphead++;
+        y = 0;
+        x++;
+        if (tet[x] == 0)
+            return (0);
 	}
 	return (0);
 }

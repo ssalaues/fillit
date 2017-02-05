@@ -6,7 +6,7 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 09:32:47 by mkok              #+#    #+#             */
-/*   Updated: 2017/02/02 10:34:17 by ssalaues         ###   ########.fr       */
+/*   Updated: 2017/02/03 23:45:01 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char		**solver(t_piece *pieces)
 		resetused(phead);
 		map = mapmaker(mapsize);
 		maphead = map;
-		addallpieces(phead, maphead);
+		addallpieces(phead, maphead, mapsize);
 //		if (allpiecesused(phead))
 //			printmap(maphead);
 	}

@@ -6,7 +6,7 @@
 #    By: mkok <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/12 19:16:20 by mkok              #+#    #+#              #
-#    Updated: 2017/02/02 11:45:56 by mkok             ###   ########.fr        #
+#    Updated: 2017/02/03 09:50:43 by ssalaues         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,13 +43,19 @@ $(NAME): lib
 	@gcc -Wall -Wextra -Werror $(SRCS) -Llibft -lft -g
 
 lib:
-	@cd libft && make
+	@cd libft && make re
 
 clean:
-	/bin/rm -f $(OBJS)
+	@echo "Cleaning Fillit"
+	@/bin/rm -f $(OBJS)
+	@echo "Done"
+	@cd libft && make clean
 
 fclean: clean
-	/bin/rm -f $(NAME)
-	/bin/rm a.out
+	@echo "fCleaning Fillit"
+	@/bin/rm -f $(NAME)
+	@echo "Done"
+	@/bin/rm a.out
+	@cd libft && make fclean
 
 re: fclean all

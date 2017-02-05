@@ -6,7 +6,7 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 12:30:14 by mkok              #+#    #+#             */
-/*   Updated: 2017/02/02 11:35:28 by mkok             ###   ########.fr       */
+/*   Updated: 2017/02/03 23:45:11 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ typedef struct				s_piece
 	char					**data;
 	char					abc;
 	int						used;
+    int                     ori[2];
+	int						ymin;
+	int						ymax;
+    int						xmin;
+	int						xmax;
 }							t_piece;
 
 int							filledarea(char **map);
@@ -48,8 +53,8 @@ int							piececount(t_piece *pieces);
 void						printmap(char **map);
 char						**solver(t_piece *pieces);
 int							allpiecesused(t_piece *pieces);
-int							addallpieces(t_piece *pieces, char **map);
-int							doesitfit(t_piece *piece, char **map);
+int							addallpieces(t_piece *pieces, char **map, int mapsize);
+int							doesitfit(t_piece *piece, char **map, int mapsize);
 int							ft_sqrt_ceil(unsigned int nb);
 
 void						moveback(char **map, int amthori);

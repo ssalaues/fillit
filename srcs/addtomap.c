@@ -3,39 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   addtomap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: ssalaues <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/01 08:25:18 by mkok              #+#    #+#             */
-/*   Updated: 2017/02/02 10:15:01 by mkok             ###   ########.fr       */
+/*   Created: 2017/02/05 03:00:35 by ssalaues          #+#    #+#             */
+/*   Updated: 2017/02/05 03:59:42 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	addtomap(char **map, char **tetro)
+void    addtomap(char **map, char **tetro, int x, int y)
 {
-	char	**maphead;
-	char	**tetrohead;
-	char	*mapchar;
-	char	*tetrochar;
-
-	maphead = map;
-	tetrohead = tetro;
-	while (*maphead && *tetrohead)
-	{
-		mapchar = *maphead;
-		tetrochar = *tetrohead;
-		while(*mapchar && *tetrochar)
-		{
-			if (*mapchar == '.')
-				*mapchar = *tetrochar;
-			mapchar++;
-			tetrochar++;
-		}
-		tetrochar = *tetrohead;
-		mapchar = *maphead;
-	//	printf("%s\n", *maphead);
-		maphead++;
-		tetrohead++;
-	}
+    int x1;
+    int y1;
+    
+    x1 = 0;
+    y1 = 0;
+    while (tetro[x1] && map[x])
+    {
+        while (tetro[x1][y1] && map[x][y])
+        {
+            if (map[x][y] == '.')
+                map[x][y] = tetro[x1][y1];
+            y++;
+            y1++;
+        }
+        y = 0;
+        y1 = 0;
+        x++;
+        x1++;
+    }
 }

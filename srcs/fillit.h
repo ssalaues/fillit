@@ -46,7 +46,7 @@ void						printtetros(t_piece *pieces);
 int							fwidth(char **tetro, char c);
 int							fheight(char **tetro, char c);
 char						**mapmaker(int dimension);
-void						addtomap(char **map, char **tetro);
+void						addtomap(char **map, char **tetro, int x, int y);
 char						**trimtetro(char **tetro);
 void						trimall(t_piece *pieces);
 int							piececount(t_piece *pieces);

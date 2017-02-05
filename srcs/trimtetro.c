@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   trimtetro.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: ssalaues <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/19 14:51:12 by mkok              #+#    #+#             */
-/*   Updated: 2017/02/03 23:36:22 by ssalaues         ###   ########.fr       */
+/*   Created: 2017/02/02 02:18:52 by ssalaues          #+#    #+#             */
+/*   Updated: 2017/02/05 02:19:10 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void    remptyline(char **tetro)
         while (tetro[x][y] == '.')
             y++;
         if (y == 4)
-            tetro[x] = '\0';
+            tetro[x] = 0;
         y = 0;
         x++;
     }

@@ -33,7 +33,7 @@ char		**solver(t_piece *pieces)
 		resetused(phead);
 		map = mapmaker(mapsize);
 		maphead = map;
-		addallpieces(phead, maphead, mapsize);
+		addallpieces(phead, pieces, maphead, mapsize);
 //		if (allpiecesused(phead))
 //			printmap(maphead);
 	}

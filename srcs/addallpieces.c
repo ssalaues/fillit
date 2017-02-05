@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-int		addallpieces(t_piece *pieces, char **map, int mapsize)
+int		addallpieces(t_piece *pieces, t_piece *bl, char **map, int mapsize)
 {
 	int			x;
 	int			y;
@@ -23,15 +23,19 @@ int		addallpieces(t_piece *pieces, char **map, int mapsize)
 		return (1);
 	while (mapsize > x)
 	{
-		while (map[x][y] != 0)
+		while (map[x][y] != 0/* && !ft_isalpha((*map)[y])*/)
 		{
 			printf("Checking tetro %c\nDoes it fit: %i\n", pieces->abc, doesitfit(pieces, map, mapsize));
-			if (doesitfit(pieces, map[x][y], mapsize))
+			if (doesitfit(pieces, map, mapsize))
 			{
 				addtomap(map, pieces->data);
 				pieces->used = 1;
-				addallpieces(pieces->next, map, mapsize);
+				addallpieces(pieces->next, bl, map, mapsize);
 			}
+            else
+            {
+                clearmap(map);
+            }
 //			moveforward(map);
 			y++;
 		}
@@ -39,7 +43,7 @@ int		addallpieces(t_piece *pieces, char **map, int mapsize)
         x++;
 //		moveback(map, amthori);
 	}
-    if (!allpiecesused(pieces))
-        addallpieces(pieces, mapmaker(mapsize + 1), mapsize + 1);
-	return (1);
+//    if (!allpiecesused(pieces))
+//        addallpieces(pieces, mapmaker(mapsize + 1), mapsize + 1);
+	return (0);
 }

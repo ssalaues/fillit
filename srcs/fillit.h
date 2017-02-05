@@ -53,10 +53,10 @@ int							piececount(t_piece *pieces);
 void						printmap(char **map);
 char						**solver(t_piece *pieces);
 int							allpiecesused(t_piece *pieces);
-int							addallpieces(t_piece *pieces, char **map, int mapsize);
+int							addallpieces(t_piece *pieces, t_piece *bl, char **map, int mapsize);
 int							doesitfit(t_piece *piece, char **map, int mapsize);
 int							ft_sqrt_ceil(unsigned int nb);
-
+void                        clearmap(char **map);
 void						moveback(char **map, int amthori);
 void						moveforward(char **map);
 

@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-static int      countlines(char **tetro)
+int      countlines(char **tetro)
 {
     int     c;
     char    **t;
@@ -26,24 +26,41 @@ static int      countlines(char **tetro)
     }
     return (c);
 }
-static char **emptyline(char **tetro) // If empty line then move pointer to skip
+static char **femptyline(char **tetro, int x) // If empty line then move pointer to skip
 {
     int		y;
     int     i;
     
     y = 0;
     i = 0;
-    while (tetro[0][y] != 0) //Skip empty first lines
+    while (tetro[x][y] != 0) //Skip empty first lines
     {
-        if (!(ft_isalpha(tetro[0][y])))
+        if (!(ft_isalpha(tetro[x][y])))
             i++;
         y++;
     }
-    if (i == countlines(tetro))
+    if (i == 4)
         tetro++;
     if (!(ft_isalpha(**tetro)))
-        emptyline(tetro);
+        femptyline(tetro, 0);
     return (tetro);
+}
+static void    remptyline(char **tetro)
+{
+    int x;
+    int y;
+    
+    x = 0;
+    y = 0;
+    while (tetro[x])
+    {
+        while (tetro[x][y] == '.')
+            y++;
+        if (y == 4)
+            tetro[x] = '\0';
+        y = 0;
+        x++;
+    }
 }
 static void    ytrim(char **tetro) // Trims Y axis
 {
@@ -73,8 +90,16 @@ static void    ytrim(char **tetro) // Trims Y axis
 }
 char	**trimtetro(char **tetro)
 {
-    tetro = emptyline(tetro);
-    ytrim(tetro);
+    int x;
+    
+    x = 0;
+//    while (x < countlines(tetro))
+//    {
+        tetro = femptyline(tetro, x);
+    remptyline(tetro);
+        ytrim(tetro);
+        x++;
+//    }
     return (tetro);
 }
 /*

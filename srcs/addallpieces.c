@@ -23,22 +23,18 @@ int		addallpieces(t_piece *pieces, t_piece *bl, char **map, int mapsize)
 		return (1);
 	while (mapsize > x)
 	{
-		while (map[x][y] != 0/* && !ft_isalpha((*map)[y])*/)
-		{
-			printf("Checking tetro %c\nDoes it fit: %i\n", pieces->abc, doesitfit(pieces, map, mapsize));
-			if (doesitfit(pieces, map, mapsize))
+//		while (map[x][y] != 0/* && !ft_isalpha((*map)[y])*/)
+//		{
+			printf("Checking tetro %c\nDoes it fit: %i\n", pieces->abc, doesitfit(pieces, map, x, y));
+			if (doesitfit(pieces, map, x, y))
 			{
-				addtomap(map, pieces->data);
-				pieces->used = 1;
+                addtomap(map, pieces->data);
 				addallpieces(pieces->next, bl, map, mapsize);
-			}
-            else
-            {
-                clearmap(map);
+                pieces->used = 1;
             }
 //			moveforward(map);
 			y++;
-		}
+//		}
         y = 0;
         x++;
 //		moveback(map, amthori);

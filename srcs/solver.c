@@ -6,7 +6,7 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 09:32:47 by mkok              #+#    #+#             */
-/*   Updated: 2017/02/03 23:45:01 by ssalaues         ###   ########.fr       */
+/*   Updated: 2017/02/05 18:49:24 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char		**solver(t_piece *pieces)
 	t_piece	*phead;
 
 	phead = pieces;
-	mapsize = ft_sqrt_ceil(piececount(phead));
+	mapsize = 2 + ft_sqrt_ceil(piececount(phead));
 //	map = mapmaker(mapsize);
 //	maphead = map;
 //	addallpieces(phead, maphead);
@@ -28,7 +28,6 @@ char		**solver(t_piece *pieces)
 	while (!allpiecesused(phead))
 	{
 	//	printf("MEGAPOOP\n");
-		mapsize++;
 //		freemap(map);
 		resetused(phead);
 		map = mapmaker(mapsize);
@@ -36,6 +35,7 @@ char		**solver(t_piece *pieces)
 		addallpieces(phead, pieces, maphead, mapsize);
 //		if (allpiecesused(phead))
 //			printmap(maphead);
+        mapsize++;
 	}
 	return (map);
 }

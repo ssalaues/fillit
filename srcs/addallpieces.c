@@ -6,13 +6,13 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 09:39:19 by mkok              #+#    #+#             */
-/*   Updated: 2017/02/05 02:18:25 by ssalaues         ###   ########.fr       */
+/*   Updated: 2017/02/05 18:48:42 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		addallpieces(t_piece *pieces, t_piece *bl, char **map, int mapsize)
+int     addallpieces(t_piece *pieces, t_piece *bl, char **map, int mapsize)
 {
 	int			x;
 	int			y;
@@ -29,8 +29,8 @@ int		addallpieces(t_piece *pieces, t_piece *bl, char **map, int mapsize)
 			if (doesitfit(pieces, map, x, y))
 			{
                 addtomap(map, pieces->data, x, y);
-				addallpieces(pieces->next, bl, map, mapsize);
                 pieces->used = 1;
+				addallpieces(pieces->next, bl, map, mapsize);
             }
 //			moveforward(map);
 			y++;
@@ -38,13 +38,13 @@ int		addallpieces(t_piece *pieces, t_piece *bl, char **map, int mapsize)
         y = 0;
         x++;
 //		moveback(map, amthori);
+        if (mapsize == x && !allpiecesused(bl))
+            addallpieces(pieces, bl, mapmaker(mapsize), mapsize);
 	}
-//    if (!allpiecesused(pieces))
-//        addallpieces(pieces, mapmaker(mapsize + 1), mapsize + 1);
 	return (0);
 }
-
-/*int addallpieces(t_piece *pieces, t_piece *bl)
+/*
+int addallpieces(t_piece *pieces, t_piece *bl)
 {
     if (!pieces)
         return (1);

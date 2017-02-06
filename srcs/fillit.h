@@ -6,7 +6,7 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 12:30:14 by mkok              #+#    #+#             */
-/*   Updated: 2017/02/03 23:45:11 by ssalaues         ###   ########.fr       */
+/*   Updated: 2017/02/05 18:49:15 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void						trimall(t_piece *pieces);
 int							piececount(t_piece *pieces);
 void						printmap(char **map);
 char						**solver(t_piece *pieces);
-int							allpiecesused(t_piece *pieces);
-int							addallpieces(t_piece *pieces, t_piece *bl, char **map, int mapsize);
+int                         allpiecesused(t_piece *pieces);
+int                         addallpieces(t_piece *pieces, t_piece *bl, char **map, int mapsize);
 int							doesitfit(t_piece *piece, char **map, int x, int y);
 int                         countlines(char **tetro);
 int							ft_sqrt_ceil(unsigned int nb);

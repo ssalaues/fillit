@@ -6,7 +6,7 @@
 /*   By: ssalaues <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 03:00:35 by ssalaues          #+#    #+#             */
-/*   Updated: 2017/02/05 03:59:42 by ssalaues         ###   ########.fr       */
+/*   Updated: 2017/02/05 18:48:50 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ void    addtomap(char **map, char **tetro, int x, int y)
 {
     int x1;
     int y1;
+    int y0;
     
     x1 = 0;
     y1 = 0;
+    y0 = y;
     while (tetro[x1] && map[x])
     {
         while (tetro[x1][y1] && map[x][y])
@@ -28,8 +30,8 @@ void    addtomap(char **map, char **tetro, int x, int y)
             y++;
             y1++;
         }
-        y = 0;
         y1 = 0;
+        y = y0;
         x++;
         x1++;
     }

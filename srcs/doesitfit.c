@@ -6,7 +6,7 @@
 /*   By: ssalaues <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 02:00:11 by ssalaues          #+#    #+#             */
-/*   Updated: 2017/02/05 02:15:45 by ssalaues         ###   ########.fr       */
+/*   Updated: 2017/02/05 18:49:09 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ int doesitfit(t_piece *piece, char **map, int x, int y)
     int count;
     int x1;
     int y1;
+    int y0;
     
     count = 0;
     x1 = 0;
     y1 = 0;
+    y0 = y;
     while (piece->data[x1] && map[x])
     {
         while (piece->data[x1][y1] && map[x][y])
@@ -32,8 +34,8 @@ int doesitfit(t_piece *piece, char **map, int x, int y)
             y++;
             y1++;
         }
-        y = 0;
         y1 = 0;
+        y = y0;
         x++;
         x1++;
     }

@@ -12,34 +12,33 @@
 
 #include "fillit.h"
 
-int     addallpieces(t_piece *pieces, t_piece *bl, char **map, int mapsize)
+int     addallpieces(t_piece *pieces, t_piece *bl, char **map)
 {
-	int			x;
-	int			y;
+//	int			x;
+//	int			y;
 
-	x = 0;
-	y = 0;
-	if (!pieces)
+//	x = 0;
+//	y = 0;
+	if (!pieces && allpiecesused(pieces))
 		return (1);
-	while (mapsize > x)
+	while (map[pieces->x])
 	{
-		while (map[x][y] != 0/* && !ft_isalpha((*map)[y])*/)
+		while (map[pieces->x][pieces->y] != '\0')
 		{
-			printf("Checking tetro %c\nDoes it fit: %i\n", pieces->abc, doesitfit(pieces, map, x, y));
-			if (doesitfit(pieces, map, x, y))
+			printf("Checking tetro %c\nDoes it fit: %i\n", pieces->abc, doesitfit(pieces, map, pieces->x, pieces->y));
+			if (doesitfit(pieces, map, pieces->x, pieces->y))
 			{
-                addtomap(map, pieces->data, x, y);
                 pieces->used = 1;
-				addallpieces(pieces->next, bl, map, mapsize);
+                addtomap(map, pieces->data, pieces->x, pieces->y);
+                if (addallpieces(pieces->next, bl, map))
+                    return (1);
+                else
+                    clearmapif(map, clearusd(pieces));
             }
-//			moveforward(map);
-			y++;
+            pieces->y++;
 		}
-        y = 0;
-        x++;
-//		moveback(map, amthori);
-        if (mapsize == x && !allpiecesused(bl))
-            addallpieces(pieces, bl, mapmaker(mapsize), mapsize);
+        pieces->y = 0;
+        pieces->x++;
 	}
 	return (0);
 }

@@ -18,12 +18,12 @@ char		**mapmaker(int dimension)
 	int		i;
 
 	i = dimension;
-	map = (char **)malloc(sizeof(char *) * (dimension + 1));
+	map = (char **)ft_memalloc(sizeof(char *) * (dimension + 1));
 	if (map)
 	{
 		while (i-- > 0)
 		{
-			*map = (char *)malloc(sizeof(char) * (dimension + 1));
+			*map = (char *)ft_memalloc(sizeof(char) * (dimension + 1));
 			if (*map)
 			{
 				ft_memset(*map, '.', dimension);

@@ -6,7 +6,7 @@
 #    By: mkok <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/12 19:16:20 by mkok              #+#    #+#              #
-#    Updated: 2017/02/03 09:50:43 by ssalaues         ###   ########.fr        #
+#    Updated: 2017/02/06 15:50:24 by ssalaues         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ SRCS = \
 		./srcs/doesitfit.c			\
 		./srcs/ft_sqrt_ceil.c		\
 		./srcs/moveback.c			\
-		./srcs/moveforward.c
+		./srcs/moveforward.c		\
+		./srcs/clearmap.c
 
 all: $(NAME)
 

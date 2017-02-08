@@ -20,7 +20,10 @@ t_piece	*createlst(char **data, char letter)
 	new->data = data;
 	new->abc = letter;
 	new->used = 0;
+    new->x = 0;
+    new->y = 0;
 	new->next = 0;
+    new->prev = 0;
 	return (new);
 }
 
@@ -38,6 +41,7 @@ void	lsteadd(t_piece *blst, t_piece *npiece)
 	while (b->next != NULL)
 		b = b->next;
 	b->next = npiece;
+    npiece->prev = b;
 }
 
 t_piece	*rtet(int fd)

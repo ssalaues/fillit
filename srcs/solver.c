@@ -29,12 +29,10 @@ char		**solver(t_piece *pieces)
 	{
 	//	printf("MEGAPOOP\n");
 //		freemap(map);
-		resetused(phead);
+//		resetused(phead);
 		map = mapmaker(mapsize);
 		maphead = map;
-		addallpieces(phead, pieces, maphead, mapsize);
-//		if (allpiecesused(phead))
-//			printmap(maphead);
+		addallpieces(pieces, phead, maphead);
         mapsize++;
 	}
 	return (map);

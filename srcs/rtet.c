@@ -47,7 +47,6 @@ void	lsteadd(t_piece *blst, t_piece *npiece)
 t_piece	*rtet(int fd)
 {
 	t_piece	*blst;
-	t_piece	*piece;
 	char	tmp[21];
 	char	*a;
 
@@ -57,16 +56,18 @@ t_piece	*rtet(int fd)
 	tmp[20] = 0;
 	if (!validatechars(tmp))
 			return(NULL);
-	piece = createlst(put_alpha(ft_strsplit(tmp, '\n'), *a), *a);
+	blst = createlst(put_alpha(ft_strsplit(tmp, '\n'), *a), *a);
 	a++;
-	blst = piece;
+    ft_bzero(tmp, 20);
 	while (read(fd, tmp, 1))
 	{
+        if (*tmp != '\n')
+            return (NULL);
+        ft_bzero(tmp, 20);
 		read(fd, tmp, 20);
 		if (!validatechars(tmp))
 			return (NULL);
-		piece = createlst(put_alpha(ft_strsplit(tmp, '\n'), *a), *a);
-		lsteadd(blst, piece);
+		lsteadd(blst, createlst(put_alpha(ft_strsplit(tmp, '\n'), *a), *a));
 		a++;
 	}
 	close(fd);

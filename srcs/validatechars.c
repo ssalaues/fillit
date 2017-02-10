@@ -6,7 +6,7 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 14:57:48 by mkok              #+#    #+#             */
-/*   Updated: 2016/12/14 17:55:54 by mkok             ###   ########.fr       */
+/*   Updated: 2017/02/09 23:58:26 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ int		validatechars(char *tetro)
 {
 	int			rows;
 	int			count;
+    int         nl;
 	char		*start;
 
 	start = tetro;
 	count = 0;
 	rows = 0;
+    nl = 0;
 	while (*tetro)
 	{
 		while (*tetro != '\n')
@@ -29,6 +31,8 @@ int		validatechars(char *tetro)
 				return (0);
 			if (*tetro == '#')
 				count++;
+            if (*tetro == '\n' && (*tetro) + 1 == '\n')
+                nl++;
 			tetro++;
 		}
 		tetro++;

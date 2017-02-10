@@ -20,7 +20,7 @@ char		**solver(t_piece *pieces)
 	t_piece	*phead;
 
 	phead = pieces;
-	mapsize = 2 + ft_sqrt_ceil(piececount(phead));
+	mapsize = ft_sqrt_ceil(piececount(phead));
 //	map = mapmaker(mapsize);
 //	maphead = map;
 //	addallpieces(phead, maphead);
@@ -32,7 +32,8 @@ char		**solver(t_piece *pieces)
 //		resetused(phead);
 		map = mapmaker(mapsize);
 		maphead = map;
-		addallpieces(pieces, phead, maphead);
+		if (!addallpieces(resetusd(pieces), phead, maphead))
+            freemap(map);
         mapsize++;
 	}
 	return (map);

@@ -25,7 +25,7 @@ int     addallpieces(t_piece *pieces, t_piece *bl, char **map)
 	{
 		while (map[pieces->x][pieces->y] != '\0')
 		{
-			printf("Checking tetro %c\nDoes it fit: %i\n", pieces->abc, doesitfit(pieces, map, pieces->x, pieces->y));
+//			printf("Checking tetro %c\nDoes it fit: %i\n", pieces->abc, doesitfit(pieces, map, pieces->x, pieces->y));
 			if (doesitfit(pieces, map, pieces->x, pieces->y))
 			{
                 pieces->used = 1;

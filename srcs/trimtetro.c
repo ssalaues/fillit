@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+ /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   trimtetro.c                                        :+:      :+:    :+:   */
@@ -85,6 +85,25 @@ static void    ytrim(char **tetro) // Trims Y axis
     }
     
 }
+
+static int  ycheck(char **tetro)
+{
+    int     c;
+    char    **t;
+    
+    c = 0;
+    t = tetro;
+    while (*t)
+    {
+        if (**t == '.')
+            c++;
+        t++;
+    }
+    if (c == countlines(tetro))
+        return (1);
+    return (0);
+}
+
 char	**trimtetro(char **tetro)
 {
     int x;
@@ -99,34 +118,9 @@ char	**trimtetro(char **tetro)
     x = 0;
     while (x < 3)
     {
-        ytrim(tetro);
+        if (ycheck(tetro))
+            ytrim(tetro);
         x++;
     }
     return (tetro);
 }
-/*
-....
-##..
-.#..
-.#..
-
-....
-####
-....
-....
-
-#...
-###.
-....
-....
-
-....
-##..
-.##.
-....
-
-....
-####
-....
-....
-*/

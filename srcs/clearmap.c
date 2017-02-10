@@ -56,6 +56,21 @@ t_piece    *clearusd(t_piece *pieces)
     return (pieces);
 }
 
+t_piece    *resetusd(t_piece *pieces)
+{
+    t_piece *bl;
+    
+    bl = pieces;
+    while (bl)
+    {
+        bl->x = 0;
+        bl->y = 0;
+        bl->used = 0;
+        bl = bl->next;
+    }
+    return (pieces);
+}
+
 char    **clearmap(char **map, t_piece *pieces)
 {
     int     y;

@@ -59,6 +59,7 @@ int							ft_sqrt_ceil(unsigned int nb);
 char                        **clearmapif(char **map, t_piece *piece);
 char                        **clearmap(char **map, t_piece *pieces);
 t_piece                     *clearusd(t_piece *pieces);
+t_piece                     *resetusd(t_piece *pieces);
 void                        shift(t_piece *piece, char **map, int x, int y);
 void						moveback(char **map, int amthori);
 void						moveforward(char **map);

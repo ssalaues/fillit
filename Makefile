@@ -6,7 +6,7 @@
 #    By: mkok <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/12 19:16:20 by mkok              #+#    #+#              #
-#    Updated: 2017/02/06 15:50:24 by ssalaues         ###   ########.fr        #
+#    Updated: 2017/02/09 19:42:02 by ssalaues         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ SRCS = \
 all: $(NAME)
 
 $(NAME): lib
-	@gcc -Wall -Wextra -Werror $(SRCS) -Llibft -lft -g
+	@gcc -Wall -Wextra -Werror $(SRCS) -Llibft -lft -o fillit
 
 lib:
 	@cd libft && make re
@@ -56,7 +56,6 @@ fclean: clean
 	@echo "fCleaning Fillit"
 	@/bin/rm -f $(NAME)
 	@echo "Done"
-	@/bin/rm a.out
 	@cd libft && make fclean
 
 re: fclean all

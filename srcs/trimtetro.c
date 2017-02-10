@@ -29,7 +29,7 @@ int      countlines(char **tetro)
 static char **femptyline(char **tetro, int x) // If empty line then move pointer to skip
 {
     int		y;
-    int     i;
+    size_t  i;
     
     y = 0;
     i = 0;
@@ -39,29 +39,25 @@ static char **femptyline(char **tetro, int x) // If empty line then move pointer
             i++;
         y++;
     }
-    if (i == 4)
+    if (i == ft_strlen(*tetro))
         tetro++;
-    if (!(ft_isalpha(**tetro)))
-        femptyline(tetro, 0);
+//    if (countlines(tetro) == cntd(*tetro))
+//        femptyline(tetro, (0));
     return (tetro);
 }
-static void    remptyline(char **tetro)
+int cntd(char *tetro)
 {
-    int x;
-    int y;
+    int c;
     
-    x = 0;
-    y = 0;
-    while (tetro[x])
+    c = 0;
+    while (*tetro)
     {
-        while (tetro[x][y] == '.')
-            y++;
-        if (y == 4)
-            tetro[x] = 0;
-        y = 0;
-        x++;
+        c++;
+        tetro++;
     }
+    return (c);
 }
+
 static void    ytrim(char **tetro) // Trims Y axis
 {
     int x;
@@ -69,20 +65,21 @@ static void    ytrim(char **tetro) // Trims Y axis
     char **s;
     
     x = 0;
-    c = 0;
+    c = 1;
     s = tetro;
-    while (tetro[x][0] == '.')
+    while (tetro[x][0] < 64 && x < countlines(tetro) - 1)
     {
         c++;
         x++;
     }
-    if (c == countlines(tetro))
+    if (c == countlines(tetro) && countlines(tetro) > 1)
     {
+        x = 0;
         while (c > 0)
         {
-            x = 0;
-//            *s++; //can't get this to iterate?!?
+            (s[x])++;
             c--;
+            x++;
         }
 
     }
@@ -93,13 +90,18 @@ char	**trimtetro(char **tetro)
     int x;
     
     x = 0;
-//    while (x < countlines(tetro))
-//    {
-        tetro = femptyline(tetro, x);
-    remptyline(tetro);
+    while (x < 3)
+    {
+        tetro = femptyline(tetro, 0);
+//        remptyline(tetro);
+        x++;
+    }
+    x = 0;
+    while (x < 3)
+    {
         ytrim(tetro);
         x++;
-//    }
+    }
     return (tetro);
 }
 /*

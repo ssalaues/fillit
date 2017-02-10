@@ -6,18 +6,18 @@
 /*   By: ssalaues <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 18:06:16 by ssalaues          #+#    #+#             */
-/*   Updated: 2017/02/01 11:51:22 by ssalaues         ###   ########.fr       */
+/*   Updated: 2017/02/10 00:18:24 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char    **put_alpha(char **piece, char c)
+char	**put_alpha(char **piece, char c)
 {
-    char **phead;
+	char **phead;
 	char *str;
-    
-    phead = piece;
+
+	phead = piece;
 	while (*phead)
 	{
 		str = *phead;
@@ -25,9 +25,9 @@ char    **put_alpha(char **piece, char c)
 		{
 			if (*str == '#')
 				*str = c;
-            str++;
+			str++;
 		}
 		phead++;
 	}
-    return(piece);
+	return (piece);
 }

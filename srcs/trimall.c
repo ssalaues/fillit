@@ -6,7 +6,7 @@
 /*   By: mkok <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 09:16:47 by mkok              #+#    #+#             */
-/*   Updated: 2017/02/01 12:11:50 by mkok             ###   ########.fr       */
+/*   Updated: 2017/02/10 01:14:32 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	trimall(t_piece *pieces)
 {
 	t_piece		*phead;
-	
+
 	phead = pieces;
 	while (phead)
 	{

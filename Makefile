@@ -6,7 +6,7 @@
 #    By: mkok <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/12 19:16:20 by mkok              #+#    #+#              #
-#    Updated: 2017/02/09 19:42:02 by ssalaues         ###   ########.fr        #
+#    Updated: 2017/02/10 00:57:48 by ssalaues         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,6 @@ SRCS = \
 		./srcs/validateshape.c		\
 		./srcs/addtomap.c			\
 		./srcs/mapmaker.c			\
-		./srcs/fheight.c			\
-		./srcs/fwidth.c				\
-		./srcs/resetused.c			\
 		./srcs/freemap.c			\
 		./srcs/trimtetro.c			\
 		./srcs/trimall.c			\

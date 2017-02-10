@@ -6,13 +6,13 @@
 /*   By: ssalaues <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/29 14:42:45 by ssalaues          #+#    #+#             */
-/*   Updated: 2017/01/29 14:47:57 by ssalaues         ###   ########.fr       */
+/*   Updated: 2017/02/10 01:13:47 by ssalaues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int        ft_sqrt_ceil(unsigned int nb)
+int	ft_sqrt_ceil(unsigned int nb)
 {
 	unsigned int i;
 
